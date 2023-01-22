@@ -24,6 +24,27 @@ app.post("/posts", (req, res) => {
   res.status(200).send(posts[id]);
 });
 
+// COMMENTS SERVICE
+
+const commentsByPostId = {};
+
+app.get("posts/:id/comments", (req, res) => {
+  res.send(commentsByPostId[req.params.id] || []);
+});
+
+app.post("posts/:id/comments", (req, res) => {
+  const commentId = randomBytes(4).toString("hex");
+  const content = req.body.content;
+  const comments = commentsByPostId[req.params.id] || [];
+
+  comments.push({ id: commentId, content });
+  commentsByPostId[req.params.id] = comments;
+
+  res.status(200).send(comments);
+});
+
+// PORT
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
