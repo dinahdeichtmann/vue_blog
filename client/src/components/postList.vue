@@ -2,6 +2,7 @@
 import axios from "axios";
 import { computed, onMounted, reactive } from "vue";
 import commentCreate from "./commentCreate.vue";
+import commentList from "./commentList.vue";
 
 const state = reactive({
   posts: {},
@@ -20,7 +21,6 @@ const sortedPosts = computed(() => {
 async function fetchPosts() {
   const response = await axios.get("http://localhost:4001/posts");
   state.posts = response.data;
-  console.log("SORTED POSTS", sortedPosts);
 }
 
 onMounted(() => {
@@ -32,6 +32,7 @@ onMounted(() => {
   <div class="d-flex flex-row flex-wrap justify-content-between">
     <div class="card" v-for="post in sortedPosts" :key="post.id">
       <h3>{{ post.title }}</h3>
+      <commentList :postId="post.id"></commentList>
       <commentCreate :postId="post.id"></commentCreate>
     </div>
   </div>
