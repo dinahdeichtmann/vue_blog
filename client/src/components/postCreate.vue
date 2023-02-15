@@ -3,22 +3,12 @@ import { ref } from "vue";
 import axios from "axios";
 
 const title = ref("");
+const emit = defineEmits(["sendPost"]);
 
 async function sendPost(event) {
   event.preventDefault();
 
-  await axios
-    .post("http://localhost:4001/posts", {
-      title: title.value,
-    })
-    .then(function (response) {
-      console.log("RESPONSE", response);
-    })
-    .catch(function (error) {
-      console.log("ERROR", error);
-    });
-
-  console.log("TITLE", title);
+  emit("sendPost", title.value);
 
   title.value = "";
 }
