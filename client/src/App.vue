@@ -1,5 +1,6 @@
 <script setup>
 import postCreate from "./components/postCreate.vue";
+import postList from "./components/postList.vue";
 </script>
 
 <template>
@@ -14,6 +15,9 @@ import postCreate from "./components/postCreate.vue";
   <body>
     <div class="container">
       <postCreate></postCreate>
+      <hr />
+      <h1>Posts</h1>
+      <postList></postList>
     </div>
   </body>
 </template>

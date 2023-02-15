@@ -8,8 +8,8 @@ async function sendPost(event) {
   event.preventDefault();
 
   await axios
-    .post("http://localhost:5000/posts", {
-      title: title,
+    .post("http://localhost:4001/posts", {
+      title: title.value,
     })
     .then(function (response) {
       console.log("RESPONSE", response);
