@@ -19,9 +19,6 @@ async function sendPost(title) {
     .post("http://localhost:4001/posts", {
       title: title,
     })
-    .then(function (response) {
-      console.log("RESPONSE", response);
-    })
     .catch(function (error) {
       console.log("ERROR", error);
     });

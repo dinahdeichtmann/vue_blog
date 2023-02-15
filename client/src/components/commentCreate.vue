@@ -1,19 +1,17 @@
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 
 const props = defineProps({
   postId: String,
 });
 
 const newComment = ref("");
+const emit = defineEmits(["sendComment"]);
 
 async function sendComment(event) {
   event.preventDefault();
 
-  await axios.post(`http://localhost:4001/posts/${props.postId}/comments`, {
-    content: newComment.value,
-  });
+  emit("sendComment", newComment.value);
 
   newComment.value = "";
 }

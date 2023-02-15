@@ -1,32 +1,23 @@
 <script setup>
-import axios from "axios";
-import { computed, onMounted, reactive } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   postId: String,
+  comments: Object,
 });
 
-const state = reactive({ comments: [] });
+// const commentProp = defineProps({
+//   comments: Object,
+// });
 
 const sortedComments = computed(() => {
   let sortedComments = [];
 
-  for (const comment of Object.values(state.comments)) {
+  for (const comment of Object.values(props.comments)) {
     sortedComments.push(comment);
   }
 
   return sortedComments;
-});
-
-async function fetchComments() {
-  const response = await axios.get(
-    `http://localhost:4001/posts/${props.postId}/comments`
-  );
-  state.comments = response.data;
-}
-
-onMounted(() => {
-  fetchComments();
 });
 </script>
 
