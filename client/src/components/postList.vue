@@ -1,6 +1,7 @@
 <script setup>
 import axios from "axios";
 import { computed, onMounted, reactive } from "vue";
+import commentCreate from "./commentCreate.vue";
 
 const state = reactive({
   posts: {},
@@ -31,6 +32,7 @@ onMounted(() => {
   <div class="d-flex flex-row flex-wrap justify-content-between">
     <div class="card" v-for="post in sortedPosts" :key="post.id">
       <h3>{{ post.title }}</h3>
+      <commentCreate :postId="post.id"></commentCreate>
     </div>
   </div>
 </template>
