@@ -1,10 +1,9 @@
 const cors = require("cors");
 const express = require("express");
-const randomBytes = require("crypto").randomBytes;
+const { randomBytes } = require("crypto");
 
 const app = express();
-
-app.use(express.json);
+app.use(express.json());
 app.use(cors());
 
 // POSTS SERVICE
@@ -28,11 +27,11 @@ app.post("/posts", (req, res) => {
 
 const commentsByPostId = {};
 
-app.get("posts/:id/comments", (req, res) => {
+app.get("/posts/:id/comments", (req, res) => {
   res.send(commentsByPostId[req.params.id] || []);
 });
 
-app.post("posts/:id/comments", (req, res) => {
+app.post("/posts/:id/comments", (req, res) => {
   const commentId = randomBytes(4).toString("hex");
   const content = req.body.content;
   const comments = commentsByPostId[req.params.id] || [];
@@ -45,7 +44,7 @@ app.post("posts/:id/comments", (req, res) => {
 
 // PORT
 
-const port = 5000;
+const port = 4001;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
