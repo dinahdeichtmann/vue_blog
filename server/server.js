@@ -46,6 +46,6 @@ app.post("/posts/:id/comments", (req, res) => {
 
 const port = 4001;
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(port, function () {
+  console.log(`App listening on port ${port}`);
 });
