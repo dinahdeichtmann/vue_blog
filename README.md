@@ -1,6 +1,6 @@
 # Vue.js micro blog
 
-![Home Screen](./cover.png)
+![Home Screen](./images/cover.png)
 
 This **micro blog** is a **student project** I built in **Ludovic Laloux's class** during my Continuing Education course at **Toulouse Institute of Technology**.
 
