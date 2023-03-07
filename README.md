@@ -20,6 +20,7 @@ Working on this project, I learned to use **Vue.js 3** along with **Bootstrap**.
 - Respond to and handle user events with **event handlers**
 - Use **computed properties** to iterate through arrays and objects
 - Use **props and events** to pass data to components
+- Use **lifecycle hooks** to run code at specific stages
 - **Apply Bootstrap classes** to quickly style components
 
 ## Functionalities
