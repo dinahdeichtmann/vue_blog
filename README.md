@@ -6,13 +6,13 @@ This **micro blog** is a **student project** I built in **Ludovic Laloux's class
 
 Working on this project, I learned to use **Vue.js 3** along with **Bootstrap**. I also built a basic server using **Node.js**.
 
-## Technologies used
+## Technologies 
 
 - Vue.js 3
 - Bootstrap
 - Node.js: Express, Cors, randomBytes
 
-## Skills gained
+## Skills 
 
 - Create a **single page application** using **Vue.js** and **Vite**
 - Use **axios** to make **HTTP requests**
